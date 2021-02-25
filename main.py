@@ -12,7 +12,7 @@ def getTemp():
     pi = pigpio.pi()  # use defaults
     handle = pi.i2c_open(1, D6T_Address)  # open device at address 0x0a on bus 1
     tP = [0] * 8
-    result = i2c_bus.write_byte(D6T_Address, 0x4c);  #Write command in register
+    result = i2c_bus.write_byte(D6T_Address, 0x4c)  #Write command in register
 
     (bytes_read, temperature_data) = pi.i2c_read_device(handle, len(temperature_data))
     tPTAT = (256 * temperature_data[1] + temperature_data[0]) / 10
